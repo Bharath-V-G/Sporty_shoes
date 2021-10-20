@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sporty Shoes</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	
+</head>
+<body>
+	<br>
+	
+	<hr>
+	<div class="container my-2">
+		<h1><span>Products in cart currently which Total Costs </span><span style="color:Brown" th:text="${session.sessionCost}"></span></h1>
+		
+		<h6 th:text="${action}"></h6>
+		<span th:text="${session.action}"
+		style="text-align: center; color: red"></span>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+				<th>Id</th>
+					<th>Product Id</th>
+					<th>Quantity</th>
+					<th>Size</th>
+					<th>Price</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			
+			
+		
+			
+			
+			<tbody>
+				<tr th:each="cart : ${cartList}">
+				<td th:text="${cart.id}"></td>
+					<td th:text="${cart.productId}"></td>
+					<td th:text="${cart.quantity}"></td>
+					<td th:text="${cart.size}"></td>
+					<td th:text="${cart.price}"></td>
+					<td><a th:href="@{/deleteCartItems/{id}(id=${cart.id})}"
+						class="btn btn-danger">Delete</a></td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+	
+	
+	<div class="container" style="text-align: right">
+		<a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Back to Home</a>
+		<h1 align="center" ><b>Checkout</b></h1>
+		<h2 align="center" ><b>Enter Payment Details</b></h2>
+		
+		<center>
+		<form th:action="@{/buyNow}", method="POST">
+			<br>
+			<td>UPI Id</td>
+   				<input type="text" name="name_on_card"  />
+   				 <td>Mobile Number</td>
+ 				<input  type="text" name="card_details"   />
+ 				<button class="btn btn-info col-2" type="submit">Submit</button>
+		</form>
+		<br>
+		<h6 th:text="${action}" style="text-align: center; color: red"></h6>
+		<span th:text="${session.action}"
+			style="text-align: center; color: red"></span>
+		</center>
+<!-- 		<a th:href="@{/buyNow}" class="btn btn-primary btn-sm mb-3">Buy all Now</a> -->
+	</div>
+	
+	
+	
+	
+	
+	
+</body>
+</html>

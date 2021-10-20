@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: BHARATH
+Build-Jdk: 16.0.2
+Implementation-Title: spring-jdbc Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.bharath.app
+Implementation-URL: http://www.example.com
+Created-By: Maven Integration for Eclipse
+
